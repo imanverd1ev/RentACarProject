@@ -1,10 +1,15 @@
-﻿namespace ConsoleUi
+﻿using Business.Concrete;
+using DataAccess.Concrete.EntityFramework;
+
+namespace ConsoleUi
 {
 	internal class Program
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine("Hello, World!");
-		}
+			CarManager carManager=new CarManager(new EfCarDal());
+
+            Console.WriteLine(carManager.GetAll().Success);
+        }
 	}
 }
